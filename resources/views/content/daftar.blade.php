@@ -40,30 +40,35 @@
                         <div class="login_part_form_iner">
                             <h3>Selamat Datang ! <br>
                                 Silahkan Daftar Akun</h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                            <form class="row contact_form" action="{{route('postdaftar')}}" method="post" novalidate="novalidate">
+                            {{ csrf_field() }}
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
+                                    <input type="text" class="form-control" id="nama" name="nama" value=""
                                         placeholder="Nama Lengkap">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="email" name="name" value=""
+                                    <input type="text" class="form-control" id="email" name="email" value=""
                                         placeholder="Email">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="nmrhp" name="name" value=""
+                                    <input type="text" class="form-control" id="nohp" name="nohp" value=""
                                         placeholder="Nomor HP">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="alamat" name="name" value=""
+                                    <input type="text" class="form-control" id="alamat" name="alamat" value=""
                                         placeholder="Alamat">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="usr" name="name" value=""
+                                    <input type="text" class="form-control" id="username" name="username" value=""
                                         placeholder="Username">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
                                     <input type="password" class="form-control" id="password" name="password" value=""
                                         placeholder="Password">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password_konfirm" name="password_konfirm" value=""
+                                        placeholder="Masukan Password Lagi">
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <button type="submit" value="submit" class="btn_3">

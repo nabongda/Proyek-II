@@ -23,74 +23,48 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="left_sidebar_area">
-                        <aside class="left_widgets p_filter_widgets sidebar_box_shadow">
-                            <div class="l_w_title">
-                                <h3>Cari Kategori</h3>
-                            </div>
-                            <div class="widgets_inner">
-                                <ul class="list">
-                                    <li>
-                                        <a href="{{route('produk_pria')}}">Pakaian Pria</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('produk_wanita')}}">Pakaian Wanita</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('produk_anak')}}">Pakaian Anak</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('produk_sepatu')}}">Sepatu</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('produk_sepatu')}}">Tas</a>
-                                    </li>
-                                    <li class="sub-menu">
-                                        <a href="#" class=" d-flex justify-content-between">
-                                            Aksesoris
-                                            <div class="right ti-plus"></div>
-                                        </a>
-                                        <ul>
-                                            <li>
-                                                <a href="{{route('produk_topi')}}">Topi</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('produk_gelang')}}">Gelang</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </div>
+                @include('partials.menu_kategori')
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
                                 <div class="single_product_menu product_bar_item">
-                                    <h2>Produk</h2>
+                                    <h2>
+                                    <?php
+                                    
+                                        if($byCate!=""){
+                                            $produk=$list_produk;
+                                            echo $byCate->nama_kategori;
+                                        }
+                                        else{
+                                            echo "Produk";
+                                        }
+
+                                    ?></h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_category_product">
-                                <div class="single_category_img">
-                                    <img src="img/category/category_1.png" alt="">
-                                    <div class="category_social_icon">
-                                        <ul>
-                                            <li><a href="#"><i class="ti-eye"></i></a></li>
-                                            <li><a href="#"><i class="ti-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="category_product_text">
-                                        <a href="single-product.html"><h5>Long Sleeve TShirt</h5></a>
-                                        <p>$150.00</p>
+                        @foreach($produk as $product)
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="single_category_product">
+                                        <div class="single_category_img">
+                                            <img src="{{url('img/category/',$product->gambar)}}" alt="">
+                                            <div class="category_social_icon">
+                                                <ul>
+                                                    <li><a href="#"><i class="ti-eye"></i></a></li>
+                                                    <li><a href="#"><i class="ti-shopping-cart"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="category_product_text">
+                                                <a href="single-product.html"><h5>{{$product->nama_produk}}</h5></a>
+                                                <p>Rp. {{$product->harga}}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
+                        @endforeach
+                        <!-- <div class="col-lg-4 col-sm-6">
                             <div class="single_category_product">
                                 <div class="single_category_img">
                                     <img src="img/category/category_2.png" alt="">
@@ -276,7 +250,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-lg-12 text-center">
                             <a href="#" class="btn_2">More Items</a>
                         </div>

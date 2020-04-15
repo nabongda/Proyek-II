@@ -25,7 +25,10 @@
                                     <a class="nav-link" href="{{route('kontak')}}">Kontak</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{route('pesanan')}}">Pesanan Saya</a>
+                                    <a class="nav-link" href="#">Pesanan Saya</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{route('logout')}}">Logout</a>
                                 </li>
                             </ul>
                         </div>

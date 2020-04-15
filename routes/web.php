@@ -10,14 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::resource('homepage', 'HomepageController');
 Route::get('/', function () {
     return view('content.home');
 })->name('home');
 
-Route::get('produk', function () {
-    return view('content.produk');
-})->name('produk');
+Route::get('produk', 'ProdukController@shop')->name('produk');
+
+Route::get('/kategori/{id}','ProdukController@listByCat')->name('kategori');
 
 Route::get('produk_pria', function () {
     return view('content.produk_pria');
@@ -51,22 +52,26 @@ Route::get('produk_gelang', function () {
     return view('content.produk_gelang');
 })->name('produk_gelang');
 
-Route::get('login', function () {
-    return view('content.login');
-})->name('login');
-
-Route::get('daftar', function () {
-    return view('content.daftar');
-})->name('daftar');
-
 Route::get('kontak', function () {
     return view('content.kontak');
 })->name('kontak');
 
-Route::get('home_user', function () {
-    return view('content.home_user');
-})->name('home_user');
+// Route::get('home_user', function () {
+//     return view('content.home_user');
+// })->name('home_user');
 
 Route::get('keranjang', function () {
     return view('content.keranjang');
 })->name('keranjang');
+
+Route::get('login', 'AuthController@getLogin')->name('login');
+
+Route::post('login', 'AuthController@postLogin')->name('postlogin');
+
+Route::get('daftar', 'AuthController@getDaftar')->name('daftar');
+
+Route::post('daftar', 'AuthController@postDaftar')->name('postdaftar');
+
+Route::get('halut', 'AuthController@index')->name('home_user');
+
+Route::get('logout', 'AuthController@logout')->name('logout');
